@@ -1,0 +1,20 @@
+.header {
+  box-shadow: 5px 10px 20px #888888;
+  margin-top: 30px; }
+
+.left-menu {
+  float: left;
+  min-height: 800px;
+  padding-top: 30px; }
+
+.content {
+  float: left;
+  min-height: 800px;
+  padding-top: 30px; }
+
+.clearfix:after {
+  clear: both; }
+
+.table-cell {
+  display: table-cell;
+  border: 1px solid red; }
