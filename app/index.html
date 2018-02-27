@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 
-<html ng-app="myQuiz">
+<html ng-app="myShop">
 <head>
+	<!-- Include Bootstrap-->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<!-- jQuery library -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -10,27 +11,13 @@
 	<!-- Angular JS -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 	<!--Include Angular Routing-->
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
 	<!-- CSS -->	
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body class="container">
-	<div class="row header">
-		<div class="col-xs-12 col-sm-12 col-md-12">
-			<h1>QUIZ TIME</h1>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-12 col-sm-4 col-md-4 left-menu">
-			MENU
-		</div>
-		<div class="col-xs-12 col-sm-8 col-md-8 content clearfix">
-			the content !!!!
-		</div>
-	</div>
-	
+<body class="container"> 
+	<div ui-view="homeHtml"></div>
 	<script src="javascript/main.js"></script>
-    <!-- <script src="js/controllers/"></script>
-    <script src="js/services/dateService.js"></script> -->
+    <script src="js/controllers/homeController.js"></script>
 </body>
 </html>

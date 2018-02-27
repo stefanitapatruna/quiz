@@ -6,7 +6,7 @@ var sass = require('gulp-sass');
 var livereload = require('gulp-livereload');
 
 gulp.task('scripts', function() {
-    gulp.src(['app/**/*.js'])
+    gulp.src(['app/**/**/*.js'])
         .pipe(gulp.dest('public'))
 });
 

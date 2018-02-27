@@ -14,7 +14,3 @@
 
 .clearfix:after {
   clear: both; }
-
-.table-cell {
-  display: table-cell;
-  border: 1px solid red; }
