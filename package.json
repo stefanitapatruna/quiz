@@ -21,7 +21,7 @@
     "node-modules": "^1.0.1"
   },
   "devDependencies": {
-    "browser-sync": "^2.23.5",
+    "browser-sync": "^2.23.6",
     "gulp": "^3.9.1",
     "gulp-less": "^3.4.0",
     "gulp-livereload": "^3.8.1",
