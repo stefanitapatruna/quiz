@@ -1,4 +1,3 @@
-
 var gulp = require('gulp');
 var watch = require('gulp-watch');
 var sass = require('gulp-sass');
@@ -15,10 +14,10 @@ gulp.task('scripts', function() {
 });
 
 
-gulp.task('scss', function() {
-    gulp.src(['app/**/*.scss'])
-    	.pipe(sass())
-        .pipe(gulp.dest('public'))
+gulp.task('sass', function() {
+    gulp.src(['app/scss/*.scss'])
+        .pipe(sass())
+        .pipe(gulp.dest('public/css'))
         .pipe(reload({
                 stream: true
             }))
@@ -42,10 +41,11 @@ gulp.task('html2', function() {
 
 gulp.task('browser-sync', function() {
 
-    browserSync({
+    browserSync.init({
         notify: false,
         server: {
-            baseDir: 'public'
+            baseDir: 'public',
+            routes: { }
         }
     });
 
@@ -55,10 +55,10 @@ gulp.task('browser-sync', function() {
 gulp.task('watch', function() {
   
   //livereload.listen();
-  gulp.watch('app/**/*.scss', ['scss']);
+  gulp.watch('app/**/*.scss', ['sass']);
   gulp.watch('app/**/*.js', ['scripts']);
   gulp.watch('app/*.html', ['html']);
   gulp.watch('app/**/*.html', ['html2']);
 });
 
-gulp.task('default',['html','html2','scripts','scss','watch','browser-sync']);
+gulp.task('default',['html','html2','scripts','sass','watch','browser-sync']);
