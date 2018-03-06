@@ -15,12 +15,8 @@
 	<!-- CSS -->	
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
-<body class="container"> 
+<body class="container" ng-controller="baseModuleController"> 
 	<div ui-view></div>
-	<div class="" ng-controller="baseModuleController">
-		<a href="#/homepage">homepage</a>
-		{{myVariable}}
-	</div>
 	<!-- LOAD MODULES -->
 	<script src="javascript/modules/base/baseModule.js"></script>	
 	<script src="javascript/modules/homepage/homepageModule.js"></script>	

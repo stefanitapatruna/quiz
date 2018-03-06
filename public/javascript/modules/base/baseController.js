@@ -3,11 +3,19 @@ angular.module('baseModule',['ui.router'])
 		$scope.myVariable= "something from angular";
 
 	}])
-	.config(['$stateProvider','$urlRouterProvider', function($stateProvider , $urlRouterProvider){
+	.config(['$stateProvider', function($stateProvider , $urlRouterProvider){
 		$stateProvider
 		.state('homepage',{
 			url:'/homepage',
-			templateUrl:'../../../home.html',
+			templateUrl:'',
 			controller: 'homepageController'
+		})
+		.state('root',{
+			url:'/',
+			templateUrl:'../../../html/home.html',
+		})
+		.state('otherwise',{
+			url:'*path',
+			templateUrl:'../../../html/home.html'
 		})
 	}]);
