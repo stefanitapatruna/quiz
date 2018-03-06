@@ -17,8 +17,9 @@
 </head>
 <body class="container"> 
 	<div ui-view></div>
-	<div class="">
+	<div class="" ng-controller="baseModuleController">
 		<a href="#/homepage">homepage</a>
+		{{myVariable}}
 	</div>
 	<!-- LOAD MODULES -->
 	<script src="javascript/modules/base/baseModule.js"></script>	

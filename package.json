@@ -20,6 +20,8 @@
     "node-modules": "^1.0.1"
   },
   "devDependencies": {
+    "angular": "^1.6.9",
+    "angular-ui-router": "^1.0.3",
     "browser-sync": "^2.23.6",
     "gulp": "^3.9.1",
     "gulp-less": "^3.4.0",

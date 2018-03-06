@@ -1,1 +1,2 @@
-angular.module("myShop",['baseModule']);
+angular.module("myShop",['baseModule',
+						'homepageModule']);
