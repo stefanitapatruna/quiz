@@ -12,10 +12,10 @@ angular.module('baseModule',['ui.router'])
 		})
 		.state('root',{
 			url:'/',
-			templateUrl:'../../../html/home.html',
+			templateUrl:'../../../html/pages/home.html',
 		})
 		.state('otherwise',{
 			url:'*path',
-			templateUrl:'../../../html/home.html'
+			templateUrl:'../../../html/pages/home.html'
 		})
 	}]);

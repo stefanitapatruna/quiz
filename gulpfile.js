@@ -40,8 +40,8 @@ gulp.task('html', function() {
     });
 
 gulp.task('html2', function() {
-    gulp.src('app/html/*.html')
-    .pipe(gulp.dest('public/html'))
+    gulp.src('app/html/**/*.html')
+    .pipe(gulp.dest('public/html/'))
     .pipe(reload({
                 stream: true
             }))
