@@ -1,8 +1,9 @@
 .header{
 	box-shadow: 5px 10px 20px #888888;
 	margin-top: 30px;
+	
 }
-.left-menu{
+.left-column{
 	float: left;
 	min-height: 800px;
 	padding-top: 30px;
@@ -14,4 +15,52 @@
 }
 .clearfix:after {
 	clear: both;
+}
+.main-menu {
+	.section-title{
+		width: 100%;
+		height: 100%;
+		font-weight: bold;
+		padding: 10px 0 10px 20px;
+		text-align: left;
+		background: linear-gradient(180deg, #c7ccca 20% , #fff 80% );
+		border: 1px solid #c7ccca;
+		cursor: pointer;
+		&:hover{
+			background: linear-gradient(180deg, #c7ccca 40% , #fff 80% );
+		}
+	}
+	.subsection{
+		padding: 10px 0;
+		a:link, a:active, a:visited{
+			display: inline-block;
+			width: 100%;
+			padding-left: 30px;
+			text-decoration: none;
+			color: #000;
+		}
+		a:hover{
+			font-weight: bold;
+		}
+		.menu-label{
+			display: inline-block;
+			width: 110px;
+			padding-right: 5px;
+		}
+		.small-menu-input{
+			width: 55px;
+		}
+		.menu-input{
+			width: 110px;
+		}
+		.main-menu-register-link{
+			margin-left: 80px;
+		}
+	}
+	.main-menu-submit{
+		margin: 10px 0 10px 110px;
+	}
+}
+.submit-button{
+	width: 110px;
 }
