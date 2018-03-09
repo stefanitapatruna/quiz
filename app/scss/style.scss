@@ -1,7 +1,7 @@
 .header{
 	box-shadow: 5px 10px 20px #888888;
 	margin-top: 30px;
-	
+
 }
 .left-column{
 	float: left;
@@ -20,6 +20,7 @@
 	.section-title{
 		width: 100%;
 		height: 100%;
+		position: relative;
 		font-weight: bold;
 		padding: 10px 0 10px 20px;
 		text-align: left;
@@ -28,6 +29,16 @@
 		cursor: pointer;
 		&:hover{
 			background: linear-gradient(180deg, #c7ccca 40% , #fff 80% );
+		}
+		&:after{
+			content: " ";
+			position: absolute;
+			left: calc(100% - 25px);
+			width: 20px;
+			height: 20px;
+			background-image: url('../images/down_arrow.png') ;
+			background-size: 20px 20px;
+
 		}
 	}
 	.subsection{

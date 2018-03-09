@@ -3,6 +3,7 @@ var watch = require('gulp-watch');
 var sass = require('gulp-sass');
 var livereload = require('gulp-livereload');
 var browserSync = require('browser-sync');
+var image = require('gulp-image');
 var reload = browserSync.reload;
 
 gulp.task('scripts', function() {
@@ -20,7 +21,6 @@ gulp.task('modulesScripts', function() {
                 stream: true
             }))
 });
-
 
 gulp.task('sass', function() {
     gulp.src(['app/scss/*.scss'])
@@ -47,6 +47,13 @@ gulp.task('html2', function() {
             }))
     });
 
+gulp.task('images', function(){
+    gulp.src(['app/images/*'])
+        .pipe(image())
+        .pipe(gulp.dest('public/images'))
+});
+
+
 gulp.task('browser-sync', function() {
 
     browserSync.init({
@@ -68,6 +75,7 @@ gulp.task('watch', function() {
   gulp.watch('app/javascript/modules/**/*.js', ['modulesScripts']);
   gulp.watch('app/*.html', ['html']);
   gulp.watch('app/**/*.html', ['html2']);
+  gulp.watch('app/images/*.png', ['images']);
 });
 
-gulp.task('default',['html','html2','scripts','modulesScripts','sass','watch','browser-sync']);
+gulp.task('default',['html','html2','scripts','modulesScripts','sass','watch','images','browser-sync']);
