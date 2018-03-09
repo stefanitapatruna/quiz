@@ -16,7 +16,17 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body class="container" ng-controller="baseModuleController"> 
-	<div ui-view></div>
+	<div class="row header">
+		<div ng-include="'html/views/header.html'"></div>
+	</div> 
+	<div class="row">
+		<div class="col-xs-6 col-sm-4 col-md-3 left-column main-menu">
+			<div ng-include="'html/views/mainMenu.html'"></div>
+		</div>
+		<div class="col-xs-6 col-sm-8 col-md-9 content clearfix">
+			<div ui-view></div>
+		</div>
+	</div>
 	<!-- LOAD MODULES -->
 	<script src="javascript/modules/base/baseModule.js"></script>	
 	<script src="javascript/modules/homepage/homepageModule.js"></script>	

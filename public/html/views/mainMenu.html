@@ -1,14 +1,14 @@
 <div class="">
 	<div class="section-title">Home</div>
-	<div class="subsection">
-		<a href="">About US</a>
-		<a href="">What we do</a>
-		<a href="">Contact US</a>
+	<div class="subsection" ng-show="{{expandedTabs.home}}">
+		<a ui-sref="aboutUs">About US</a>
+		<a ui-sref="whatWeDo">What we do</a>
+		<a ui-sref="contactUs">Contact US</a>
 	</div>
 </div>
 <div class="">
 	<div class="section-title">LogIn</div>
-	<div class="subsection">
+	<div class="subsection" ng-show="{{expandedTabs.login}}">
 		<label class="menu-label" for="userName">User Name:</label><input type="text" name="userName" class="menu-input">
 		<label class="menu-label" for="password">Password:</label><input type="password" name="password" class="menu-input">
 		<button class="main-menu-submit submit-button"> Submit </button>
@@ -17,7 +17,7 @@
 </div>
 <div class="">
 	<div class="section-title">User CP</div>
-	<div class="subsection">
+	<div class="subsection" ng-show="{{expandedTabs.userCP}}">
 		<a href="">Profile</a>
 		<a href="">My anounces</a>
 		<a href="">Favorites</a>
@@ -25,7 +25,7 @@
 </div>
 <div class="">
 	<div class="section-title">Products</div>
-	<div class="subsection">
+	<div class="subsection" ng-show="{{expandedTabs.products}}">
 		<a href="">Produs</a>
 		<a href="">Produs</a>
 		<a href="">Produs</a>
@@ -39,7 +39,7 @@
 </div>
 <div class="">
 	<div class="section-title">Search</div>
-	<div class="subsection">
+	<div class="subsection" ng-show="{{expandedTabs.Search}}">
 		<label class="menu-label" for="carMake">Make:</label><input type="text" name="carMake" class="menu-input">
 		<label class="menu-label" for="carModel">Model:</label><input type="text" name="carModel" class="menu-input">
 		<label class="menu-label" for="price">Price:</label><input type="text" name="priceMin" class="small-menu-input"> to <input type="text" name="priceMax" class="small-menu-input">
