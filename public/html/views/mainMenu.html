@@ -1,8 +1,5 @@
 <div class="">
-	<div id="homePanel" class="section-title" ng-click="toggleTab('home')">
-		<div ng-class="{'down-arrow':!expandedTabs.home, 'up-arrow':expandedTabs.home}"></div>
-		Home
-	</div>
+	<div id="homePanel" class="section-title" ng-click="toggleTab('home')">Home</div>
 	<div class="subsection" ng-show="expandedTabs.home">
 		<a ui-sref="aboutUs">About US</a>
 		<a ui-sref="whatWeDo">What we do</a>
@@ -10,22 +7,16 @@
 	</div>
 </div>
 <div class="">
-	<div id="loginPanel" class="section-title" ng-click="toggleTab('login')">
-		<div ng-class="{'down-arrow':!expandedTabs.login, 'up-arrow':expandedTabs.login}"></div>
-		LogIn
-	</div>
+	<div id="loginPanel" class="section-title" ng-click="toggleTab('login')">LogIn</div>
 	<div class="subsection" ng-show="expandedTabs.login">
 		<label class="menu-label" for="userName">User Name:</label><input type="text" name="userName" class="menu-input">
 		<label class="menu-label" for="password">Password:</label><input type="password" name="password" class="menu-input">
 		<button class="main-menu-submit submit-button"> Submit </button>
-			<a class="main-menu-register-link" ui-sref="register">Register Here</a>
+			<a class="main-menu-register-link" href="">Register Here</a>
 	</div>
 </div>
 <div class="">
-	<div id="userCpPanel" class="section-title" ng-click="toggleTab('userCP')">
-		<div ng-class="{'down-arrow':!expandedTabs.userCP, 'up-arrow':expandedTabs.userCP}"></div>
-		User CP
-	</div>
+	<div id="userCpPanel" class="section-title" ng-click="toggleTab('userCP')">User CP</div>
 	<div class="subsection" ng-show="expandedTabs.userCP">
 		<a href="">Profile</a>
 		<a href="">My anounces</a>
@@ -33,10 +24,7 @@
 	</div>
 </div>
 <div class="">
-	<div id="productsPanel" class="section-title" ng-click="toggleTab('products')">
-		<div ng-class="{'down-arrow':!expandedTabs.products, 'up-arrow':expandedTabs.products}"></div>
-		Products
-	</div>
+	<div id="productsPanel" class="section-title" ng-click="toggleTab('products')">Products</div>
 	<div class="subsection" ng-show="expandedTabs.products">
 		<a href="">Produs</a>
 		<a href="">Produs</a>
@@ -50,10 +38,7 @@
 	</div>
 </div>
 <div class="" >
-	<div id="searchPanel" class="section-title" ng-click="toggleTab('search')">
-		<div ng-class="{'down-arrow':!expandedTabs.search, 'up-arrow':expandedTabs.search}"></div>
-		Search
-	</div>
+	<div id="searchPanel" class="section-title" ng-click="toggleTab('search')">Search</div>
 	<div class="subsection" ng-show="expandedTabs.search">
 		<label class="menu-label" for="carMake">Make:</label><input type="text" name="carMake" class="menu-input">
 		<label class="menu-label" for="carModel">Model:</label><input type="text" name="carModel" class="menu-input">

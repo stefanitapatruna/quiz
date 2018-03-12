@@ -29,10 +29,6 @@ angular.module('baseModule',['ui.router'])
 			url:'/contactUs',
 			templateUrl: 'html/pages/contactUs.html'
 		})
-		.state('register',{
-			url:'/register',
-			templateUrl: 'html/pages/register.html'
-		})
 		.state('root',{
 			url:'/',
 			templateUrl:'html/pages/aboutUs.html',
