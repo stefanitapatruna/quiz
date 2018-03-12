@@ -11,7 +11,7 @@ angular.module('baseModule',['ui.router'])
 							};
 		
 		$scope.toggleTab = function(tabName){
-			
+			$scope.expandedTabs[tabName] = !$scope.expandedTabs[tabName];
 		}						
 
 	}])
