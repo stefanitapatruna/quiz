@@ -68,3 +68,22 @@
 
 .submit-button {
   width: 110px; }
+
+.form-label {
+  display: inline-block;
+  width: 150px;
+  font-size: 14px; }
+
+.form-input {
+  display: inline-block;
+  width: 250px;
+  font-size: 14px; }
+
+.pull-left {
+  float: left; }
+
+.mt-15 {
+  margin-top: 15px; }
+
+.align-top {
+  vertical-align: top; }
