@@ -15,7 +15,7 @@ angular.module('baseModule',['ui.router'])
 		}						
 
 	}])
-	.config(['$stateProvider', function($stateProvider , $urlRouterProvider){
+	.config(['$stateProvider','$urlRouterProvider','$locationProvider', function($stateProvider , $urlRouterProvider, $locationProvider){
 		$stateProvider
 		.state('aboutUs',{
 			url:'/aboutUs',
@@ -41,5 +41,8 @@ angular.module('baseModule',['ui.router'])
 		.state('otherwise',{
 			url:'*path',
 			templateUrl:'html/pages/aboutUs.html'
-		})
+		});
+
+		$locationProvider.hashPrefix('');
+		$locationProvider.html5Mode({enabled:true});
 	}]);

@@ -1,5 +1,5 @@
 angular.module('registerModule',[])
-	.controller('registerController',['$scope', function($scope){
+	.controller('registerController',['$scope','$http', function($scope, $http){
 
 		$scope.minAge = 18; 
 		$scope.maxAge = 99;
@@ -15,6 +15,7 @@ angular.module('registerModule',[])
 		};
 
 		$scope.registerUser = function(){
-			console.log('user registered', this.userData);
+
+			$http.post('/registerUser', $scope.userData);
 		}
 	}]);
