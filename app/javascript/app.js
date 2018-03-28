@@ -1,4 +1,5 @@
 angular.module("myShop",['baseModule',
 						'homepageModule',
-						'registerModule'
+						'registerModule',
+						'registeredUsersModule'
 						]); 

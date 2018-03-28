@@ -68,6 +68,15 @@ appServer.get('/registerUser', function(req, res){
 });
 
 appServer.post('/registerUser', function(req, res){
-    console.log(req.body);
+    db.users.insert(req.body,function(err, doc){
+        res.json(doc);
+    });
+});
+
+appServer.get('/registeredUsers', function(req,res){
+    console.log('i recieved a get request');
+    db.users.find(function(err, docs){
+        res.json(docs);
+    });
 });
 

@@ -1,6 +1,8 @@
 .header {
   box-shadow: 5px 10px 20px #888888;
   margin-top: 30px; }
+  .header h1 {
+    margin: 20px 0; }
 
 .left-column {
   float: left;
@@ -72,7 +74,14 @@
 .form-label {
   display: inline-block;
   width: 150px;
-  font-size: 14px; }
+  font-size: 14px;
+  position: relative; }
+  .form-label.required:after {
+    content: '*';
+    font-size: 20px;
+    color: red;
+    position: absolute;
+    top: -10px; }
 
 .form-input {
   display: inline-block;
@@ -87,3 +96,12 @@
 
 .align-top {
   vertical-align: top; }
+
+.error-message {
+  color: red; }
+
+.success-message {
+  color: green; }
+
+.registered-users td, .registered-users th {
+  min-width: 150px; }

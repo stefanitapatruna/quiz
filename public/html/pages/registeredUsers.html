@@ -1,0 +1,22 @@
+<button ng-click="getRegisteredUsers()">Get users</button>
+
+<br/>
+
+<table class="registered-users">
+	<thead>
+		<tr>
+			<th>No.</th>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Age</th>
+			<th>Gender</th>
+		</tr>
+	</thead>
+	<tr ng-repeat="user in registeredUsers">
+		<td>{{$index}}</td>
+		<td>{{user.fname}}</td>
+		<td>{{user.lname}}</td>
+		<td>{{user.age}}</td>
+		<td>{{user.gender}}</td>
+	</tr>
+</table>

@@ -1,6 +1,5 @@
 angular.module('baseModule',['ui.router'])
 	.controller('baseModuleController',['$scope', function($scope){
-		$scope.myVariable= "something from angular";
 
 		$scope.expandedTabs = {
 								'home': true,
@@ -33,6 +32,11 @@ angular.module('baseModule',['ui.router'])
 			url:'/register',
 			templateUrl: 'html/pages/register.html',
 			controller: 'registerController'
+		})
+		.state('registeredUsers',{
+			url: '/registeredUsers',
+			templateUrl: 'html/pages/registeredUsers.html',
+			controller: 'registeredUsersController'
 		})
 		.state('root',{
 			url:'/',
