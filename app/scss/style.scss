@@ -102,7 +102,7 @@
 }
 .form-input {
 	display: inline-block;
-	width: 250px;
+	width: 200px;
 	font-size: 14px;
 }
 .pull-left {
@@ -114,6 +114,22 @@
 .align-top {
 	vertical-align: top;
 }
+.registration-form{
+	.error-message, .success-message{
+		display: inline-block;
+	}
+	.success-message{
+		position: relative;
+		&.icon{
+			content: '';
+			position: absolute;
+			width: 25px;
+			height: 25px;
+			background-image: url('../images/success.png') ;
+			background-size: 25px 25px;
+		}
+	}
+}
 .error-message {
 	color: red;
 }
@@ -124,4 +140,10 @@
 	td,th{
 		min-width: 150px;
 	}
+}
+input[type="text"].error, input[type="password"].error,input[type="email"].error{
+	background-color: #F5B7B1;
+}
+.disabled{
+	color: grey;
 }

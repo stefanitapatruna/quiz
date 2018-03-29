@@ -1,5 +1,5 @@
 angular.module('registerModule')
-	.controller('registerController',['$scope','$http','registerService', function($scope, $http, registerService){
+	.controller('registerController', function($scope, $http, registerService){
 
 		$scope.minAge = 18; 
 		$scope.maxAge = 99;
@@ -24,6 +24,7 @@ angular.module('registerModule')
 			lname: '',
 			password: '',
 			retypePass: '',
+			email: '',
 			gender: '',
 			age: '',
 			aboutYou: ''
@@ -35,10 +36,11 @@ angular.module('registerModule')
 		}
 
 		$scope.verifPass = function(){
-			$scope.message = registerService.validatePass($scope.userData.password, $scope.userData.retypePass);
+			if ($scope.userData.password) {
+			 	$scope.message = registerService.validatePass($scope.userData.password, $scope.userData.retypePass);
+			}	
 
 			if ($scope.message ==='') return true;
-				else return false;
+				else return false;		
 		}
-
-	}]);
+	});
