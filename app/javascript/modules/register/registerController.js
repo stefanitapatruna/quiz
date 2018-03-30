@@ -31,8 +31,9 @@ angular.module('registerModule')
 		}
 
 		$scope.registerUser = function(){
-			console.log('s-a trimis userul l-a inregistrat');
-			$http.post('/registerUser', $scope.userData);
+			$http.post('/registerUser', $scope.userData).then(function success(){
+				console.log('userul s-a inregistrat cu success');
+			});
 		}
 
 		$scope.verifPass = function(){

@@ -116,7 +116,10 @@
 .success-message {
   color: green; }
 
-.registered-users td, .registered-users th {
+.registered-users .small-cell {
+  min-width: 40px; }
+
+.registered-users .middle-cell {
   min-width: 150px; }
 
 input[type="text"].error, input[type="password"].error, input[type="email"].error {

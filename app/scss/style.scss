@@ -136,8 +136,11 @@
 .success-message {
 	color: green;
 }
-.registered-users{
-	td,th{
+.registered-users {
+	.small-cell{
+		min-width: 40px;
+	}
+	.middle-cell{
 		min-width: 150px;
 	}
 }

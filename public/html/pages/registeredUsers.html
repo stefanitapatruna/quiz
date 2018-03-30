@@ -5,18 +5,20 @@
 <table class="registered-users">
 	<thead>
 		<tr>
-			<th>No.</th>
-			<th>First Name</th>
-			<th>Last Name</th>
-			<th>Age</th>
-			<th>Gender</th>
+			<th class="small-cell">No.</th>
+			<th class="middle-cell">First Name</th>
+			<th class="middle-cell">Last Name</th>
+			<th class="small-cell">Age</th>
+			<th class="middle-cell">E-mail</th>
+			<th class="middle-cell">Gender</th>
 		</tr>
 	</thead>
 	<tr ng-repeat="user in registeredUsers">
-		<td>{{$index}}</td>
-		<td>{{user.fname}}</td>
-		<td>{{user.lname}}</td>
-		<td>{{user.age}}</td>
-		<td>{{user.gender}}</td>
+		<td class="small-cell">{{$index}}</td>
+		<td class="middle-cell">{{user.fname}}</td>
+		<td class="middle-cell">{{user.lname}}</td>
+		<td class="small-cell">{{user.age}}</td>
+		<td class="middle-cell">{{user.email}}</td>
+		<td class="middle-cell">{{user.gender}}</td>
 	</tr>
 </table>
