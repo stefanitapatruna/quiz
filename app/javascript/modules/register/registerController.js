@@ -31,6 +31,7 @@ angular.module('registerModule')
 		}
 
 		$scope.registerUser = function(){
+			$scope.userData.password = registerService.encodeString($scope.userData.password);
 			$http.post('/registerUser', $scope.userData).then(function success(){
 				console.log('userul s-a inregistrat cu success');
 			});
@@ -41,7 +42,12 @@ angular.module('registerModule')
 			 	$scope.message = registerService.validatePass($scope.userData.password, $scope.userData.retypePass);
 			}	
 
-			if ($scope.message ==='') return true;
-				else return false;		
+			if ($scope.message ==='') {
+					return true;
+				}
+				else {
+					return false;		
+
+				}
 		}
 	});

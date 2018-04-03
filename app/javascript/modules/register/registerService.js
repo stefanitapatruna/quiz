@@ -1,6 +1,7 @@
 angular.module('registerModule')
-	.service('registerService', function() {
+	.factory('registerService', function() {
 		var registerService = {};
+		var CryptoJS = require('crypto-js');
 
 		registerService.validatePass = function(pass1 , pass2) {
 			var message = '';
@@ -15,7 +16,9 @@ angular.module('registerModule')
 			return message;
 		}
 
-		registerService.value= 'from register Service';	
+		registerService.encodeString = function(string){
+			return CryptoJS.MD5(string).toString();
+		}
 
 		return registerService;				
 	});	

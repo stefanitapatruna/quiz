@@ -3,6 +3,7 @@ var watch = require('gulp-watch');
 var sass = require('gulp-sass');
 var livereload = require('gulp-livereload');
 var image = require('gulp-image');
+var browserify = require('gulp-browserify');
 
 var express = require('express');
 var appServer = express();
@@ -17,11 +18,19 @@ gulp.task('express', function(){
 
 gulp.task('scripts', function() {
     gulp.src(['app/**/*.js'])
+        .pipe(browserify({
+          insertGlobals : true,
+          debug : !gulp.env.production
+        }))
         .pipe(gulp.dest('public'))
 });
 
 gulp.task('modulesScripts', function() {
     gulp.src(['app/javascript/modules/**/*.js'])
+        .pipe(browserify({
+          insertGlobals : true,
+          debug : !gulp.env.production
+        }))
         .pipe(gulp.dest('public/javascript/modules/'))
 });
 
@@ -79,4 +88,25 @@ appServer.get('/registeredUsers', function(req,res){
         res.json(docs);
     });
 });
+
+appServer.get('/verifUser/:user', function(req,res){
+    console.log('I recieved a user request');
+    var user = req.params.user;
+    console.log(user);
+    db.users.findOne({"fname": user}, function (err, doc){
+        res.json(doc);
+    });
+});
+
+appServer.get('/login/:user&&pass', function(req,res){
+    console.log('I recieved a login request');
+    var user = req.params.user;
+    var pass = req.params.pass;
+    console.log(user);
+    db.users.findOne({"fname": user, "password": pass}, function (err, doc){
+        console.log(res.json(doc));
+        res.json(doc);
+    });
+});
+
 

@@ -14,11 +14,18 @@
 		<div ng-class="{'down-arrow':!expandedTabs.login, 'up-arrow':expandedTabs.login}"></div>
 		LogIn
 	</div>
-	<div class="subsection" ng-show="expandedTabs.login">
-		<label class="menu-label" for="userName">User Name:</label><input type="text" name="userName" class="menu-input">
-		<label class="menu-label" for="password">Password:</label><input type="password" name="password" class="menu-input">
-		<button class="main-menu-submit submit-button"> Submit </button>
+	<div class="subsection" ng-show="expandedTabs.login" ng-controller="usersController">
+		<form name="loginForm">
+			<label class="menu-label" for="userName">User Name:</label><input type="text" name="userName" ng-model="loginUser" 
+				class="menu-input" ng-change="verifUser(loginUser)" ng-model-options="{debounce : 1000}">
+
+			<label class="menu-label" for="password">Password:</label><input type="password" name="password" ng-model="loginPass" class="menu-input">
+			<button class="main-menu-submit submit-button" ng-click="login()"> Submit </button>
 			<a class="main-menu-register-link" ui-sref="register">Register Here</a>
+		</form>
+		<div class="error-message" ng-if="!userExist && loginForm.userName.$dirty">
+			<p>This user does not exists!</p>
+		</div>
 	</div>
 </div>
 <div class="">

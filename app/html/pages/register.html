@@ -93,7 +93,7 @@
 			</div>
 			<div class="row mt-15">
 				<div class="form-label">&nbsp;</div>
-				<div class="form-input"><button ng-click="registerUser()" ng-disabled="registerForm.$invalid" ng-class="{'disabled':registerForm.$invalid}">REGISTER</button></div>
+				<div class="form-input"><button ng-click="registerUser()" ng-disabled="registerForm.$invalid && !verifPass()" ng-class="{'disabled':registerForm.$invalid && !verifPass()}">REGISTER</button></div>
 			</div>
 		</div>
 	</form>
