@@ -117,6 +117,9 @@
 .registration-form{
 	.error-message, .success-message{
 		display: inline-block;
+		p{
+			margin: 0;
+		}
 	}
 	.success-message{
 		position: relative;

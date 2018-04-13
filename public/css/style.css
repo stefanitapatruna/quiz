@@ -99,6 +99,8 @@
 
 .registration-form .error-message, .registration-form .success-message {
   display: inline-block; }
+  .registration-form .error-message p, .registration-form .success-message p {
+    margin: 0; }
 
 .registration-form .success-message {
   position: relative; }

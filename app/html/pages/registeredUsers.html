@@ -1,24 +1,24 @@
-<button ng-click="getRegisteredUsers()">Get users</button>
+<div ng-controller="getUsersPageController" ng-init="getRegisteredUsers()">
+	<br/>
 
-<br/>
-
-<table class="registered-users">
-	<thead>
-		<tr>
-			<th class="small-cell">No.</th>
-			<th class="middle-cell">First Name</th>
-			<th class="middle-cell">Last Name</th>
-			<th class="small-cell">Age</th>
-			<th class="middle-cell">E-mail</th>
-			<th class="middle-cell">Gender</th>
+	<table class="registered-users">
+		<thead>
+			<tr>
+				<th class="small-cell">No.</th>
+				<th class="middle-cell">First Name</th>
+				<th class="middle-cell">Last Name</th>
+				<th class="small-cell">Age</th>
+				<th class="middle-cell">E-mail</th>
+				<th class="middle-cell">Gender</th>
+			</tr>
+		</thead>
+		<tr ng-repeat="user in registeredUsers">
+			<td class="small-cell">{{$index}}</td>
+			<td class="middle-cell">{{user.fname}}</td>
+			<td class="middle-cell">{{user.lname}}</td>
+			<td class="small-cell">{{user.age}}</td>
+			<td class="middle-cell">{{user.email}}</td>
+			<td class="middle-cell">{{user.gender}}</td>
 		</tr>
-	</thead>
-	<tr ng-repeat="user in registeredUsers">
-		<td class="small-cell">{{$index}}</td>
-		<td class="middle-cell">{{user.fname}}</td>
-		<td class="middle-cell">{{user.lname}}</td>
-		<td class="small-cell">{{user.age}}</td>
-		<td class="middle-cell">{{user.email}}</td>
-		<td class="middle-cell">{{user.gender}}</td>
-	</tr>
-</table>
+	</table>
+</div>

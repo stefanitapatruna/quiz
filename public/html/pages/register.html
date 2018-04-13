@@ -31,29 +31,29 @@
 			<div class="row mt-15">
 				<div class="form-label required">Password:</div>
 				<div class="form-input">
-					<input type="password" name="password" ng-model="userData.password" required
-					ng-class="{'error':(registerForm.password.$touched && registerForm.password.$invalid) || (registerForm.password.$touched && !verifPass())}">
+					<input type="password" name="viewPassword" ng-model="viewPassword" required
+					ng-class="{'error':(registerForm.viewPassword.$touched && registerForm.viewPassword.$invalid) || (registerForm.viewPassword.$touched && !verifPass())}">
 				</div>
-				<div class="error-message" ng-if="registerForm.password.$touched && registerForm.password.$invalid">
+				<div class="error-message" ng-if="registerForm.viewPassword.$touched && registerForm.viewPassword.$invalid">
 					<p>This is a mandatory field!</p>
 				</div>
-				<div class="success-message icon" ng-if="registerForm.password.$touched && registerForm.password.$valid && verifPass()">
+				<div class="success-message icon" ng-if="registerForm.viewPassword.$touched && registerForm.viewPassword.$valid && verifPass()">
 					&nbsp;
 				</div>
 			</div>
 			<div class="row mt-15">
 				<div class="form-label required">Re-type Pass:</div>
 				<div class="form-input">
-					<input type="password" name="rePassword" ng-model="userData.retypePass" required
-					ng-class="{'error': (registerForm.rePassword.$touched && registerForm.rePassword.$invalid) || (registerForm.rePassword.$touched && !verifPass())}">
+					<input type="password" name="viewPasswordRetype" ng-model="viewPasswordRetype" required
+					ng-class="{'error': (registerForm.viewPasswordRetype.$touched && registerForm.viewPasswordRetype.$invalid) || (registerForm.viewPasswordRetype.$touched && !verifPass())}">
 				</div>
-				<div class="error-message" ng-if="registerForm.rePassword.$touched && registerForm.rePassword.$invalid">
+				<div class="error-message" ng-if="registerForm.viewPasswordRetype.$touched && registerForm.viewPasswordRetype.$invalid">
 					<p>This is a mandatory field!</p>
 				</div>
-				<div class="error-message" ng-if="registerForm.password.$dirty && registerForm.rePassword.$dirty && !verifPass()">
+				<div class="error-message" ng-if="registerForm.viewPassword.$dirty && registerForm.viewPasswordRetype.$dirty && !verifPass()">
 					{{message}}
 				</div>
-				<div class="success-message icon" ng-if="registerForm.rePassword.$touched && registerForm.rePassword.$valid && verifPass()"">
+				<div class="success-message icon" ng-if="registerForm.viewPasswordRetype.$touched && registerForm.viewPasswordRetype.$valid && verifPass()"">
 					&nbsp;
 				</div>
 			</div>

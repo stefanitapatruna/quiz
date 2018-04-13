@@ -1,5 +1,5 @@
 angular.module('registerModule')
-	.factory('registerService', function() {
+	.factory('registerService', function($http) {
 		var registerService = {};
 		var CryptoJS = require('crypto-js');
 
@@ -18,6 +18,13 @@ angular.module('registerModule')
 
 		registerService.encodeString = function(string){
 			return CryptoJS.MD5(string).toString();
+		}
+
+		registerService.insertUser = function(data) {
+
+			$http.post('/registerUser', data).then(function success(){
+				console.log('userul s-a inregistrat cu success');
+			});
 		}
 
 		return registerService;				

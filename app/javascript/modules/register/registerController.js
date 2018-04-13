@@ -1,9 +1,11 @@
 angular.module('registerModule')
-	.controller('registerController', function($scope, $http, registerService){
+	.controller('registerController', function($scope, registerService){
 
 		$scope.minAge = 18; 
 		$scope.maxAge = 99;
 		$scope.ages = [];
+		$scope.viewPassword = '';
+		$scope.viewPasswordRetype = '';
 		var initiatedAges = false;
 
 		$scope.initAges = function(){	
@@ -23,7 +25,6 @@ angular.module('registerModule')
 			fname: '',
 			lname: '',
 			password: '',
-			retypePass: '',
 			email: '',
 			gender: '',
 			age: '',
@@ -31,15 +32,13 @@ angular.module('registerModule')
 		}
 
 		$scope.registerUser = function(){
-			$scope.userData.password = registerService.encodeString($scope.userData.password);
-			$http.post('/registerUser', $scope.userData).then(function success(){
-				console.log('userul s-a inregistrat cu success');
-			});
+			$scope.userData.password = registerService.encodeString($scope.viewPassword);
+			registerService.insertUser($scope.userData);
 		}
 
 		$scope.verifPass = function(){
-			if ($scope.userData.password) {
-			 	$scope.message = registerService.validatePass($scope.userData.password, $scope.userData.retypePass);
+			if ($scope.viewPassword) {
+			 	$scope.message = registerService.validatePass($scope.viewPassword, $scope.viewPasswordRetype);
 			}	
 
 			if ($scope.message ==='') {
