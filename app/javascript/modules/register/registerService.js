@@ -1,5 +1,5 @@
 angular.module('registerModule')
-	.factory('registerService', function($http) {
+	.factory('registerService', function($http, helpersService) {
 		var registerService = {};
 		var CryptoJS = require('crypto-js');
 
@@ -22,7 +22,7 @@ angular.module('registerModule')
 
 		registerService.insertUser = function(data) {
 
-			$http.post('/registerUser', data).then(function success(){
+			$http.post(helpersService.serverUrl('registerUser'), data).then(function success(){
 				console.log('userul s-a inregistrat cu success');
 			});
 		}
