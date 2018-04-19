@@ -101,8 +101,7 @@ appServer.post('/login', function(req,res){
     var pass = req.body.pass;
     console.log(user + " : si parola este "+ pass);
     db.users.findOne({fname: user, password: pass}, function (err, doc){
-        console.log(doc);
-        //res.send(doc);  
+        res.json(doc);
     });
 });
 

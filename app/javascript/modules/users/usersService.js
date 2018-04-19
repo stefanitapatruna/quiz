@@ -14,10 +14,8 @@ angular.module('usersModule')
 			var loginData = {};
 			loginData.user = user;
 			loginData.pass = pass;
-			$http.post('/login', loginData).then(function success(response){
-				console.log(response);
-			});
-			return true;
+			return $http.post('/login', loginData).then( response => {
+				return response.data });
 		}
 
 		return usersService;

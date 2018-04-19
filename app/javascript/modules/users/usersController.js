@@ -2,6 +2,7 @@ angular.module('usersModule')
 		.controller('usersController', function($scope, $http, usersService, registerService){
 
 			$scope.userExist = false;
+			$scope.userFname = undefined;
 
 			$scope.verifUser = function(user){
 				if (user) {
@@ -12,11 +13,13 @@ angular.module('usersModule')
 			}
 
 			$scope.login = function(){
-				cryptPass = registerService.encodeString($scope.loginPass);
+				var cryptPass = registerService.encodeString($scope.loginPass);
 				if ($scope.loginUser && $scope.loginPass) {
-					if (usersService.login($scope.loginUser, cryptPass)) {console.log('user logat')}
-					else {console.log('user nelogat')}
-					}
-				
+						usersService.login($scope.loginUser, cryptPass).then(response => {
+						$scope.loggedUserData = response;
+						$scope.userFname = response.fname;
+						//sessionStorage.setItem('userData', JSON.stringify(response));
+					});
+				}
 			}
 		});
