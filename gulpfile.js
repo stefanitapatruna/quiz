@@ -9,10 +9,14 @@ var express = require('express');
 var appServer = express();
 
 gulp.task('express', function(){
+
     appServer.use(express.static(__dirname + '/public'));
-    
-    appServer.get('*', express.static(__dirname + '/public'));
-    
+
+    appServer.get('*', function(req, res) {
+       res.sendFile('D:/shop/public/index.html');
+    });
+
+
     appServer.listen(3000);
 });
 
