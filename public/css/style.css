@@ -1,8 +1,11 @@
 .header {
   box-shadow: 5px 10px 20px #888888;
   margin-top: 30px; }
-  .header h1 {
-    margin: 20px 0; }
+  .header a:link, .header a:active, .header a:hover, .header a:visited {
+    text-decoration: none;
+    color: #000; }
+    .header a:link h1, .header a:active h1, .header a:hover h1, .header a:visited h1 {
+      margin: 20px 0; }
 
 .left-column {
   float: left;

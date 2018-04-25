@@ -31,7 +31,7 @@ angular.module('baseModule',['ui.router'])
 		.state('register',{
 			url:'/register',
 			templateUrl: 'html/pages/register.html',
-			controller: 'registerController'
+			controller: 'registeredUsersController'
 		})
 		.state('registeredUsers',{
 			url: '/registeredUsers',

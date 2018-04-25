@@ -18,5 +18,13 @@ angular.module('usersModule')
 				return response.data });
 		}
 
+		usersService.isLogged = function(){
+			var userData = {};
+
+			userData = sessionStorage.getItem('userData');
+			if (userData === null) return false;
+				else return true;
+		}
+
 		return usersService;
 	});
