@@ -1,10 +1,10 @@
 angular.module('usersModule')
-		.controller('usersController', function($scope, $http, usersService, registerService){
+		.controller('usersController', ($scope, $rootScope, $http, usersService, registerService) => {
 
 			$scope.userFname = undefined;
-			$scope.loggedUserData = {};
+			$rootScope.loggedUserData = {};
 
-			$scope.verifUser = function(user){
+			$scope.verifUser = (user) => {
 				$scope.loginError = false; 
 				$scope.loginErrorMessage = '';
 
@@ -18,7 +18,7 @@ angular.module('usersModule')
 				}
 			}
 
-			$scope.login = function(){
+			$scope.login = () => {
 				$scope.loginError = false; 
 				$scope.loginErrorMessage = '';
 
@@ -38,20 +38,20 @@ angular.module('usersModule')
 						} else {							
 							// memory the user data in sessionStorage
 							sessionStorage.userData =  JSON.stringify(response);
-							$scope.loggedUserData = response;
+							$rootScope.loggedUserData = response;
 						}
 
 					});
 				}
 			}
 
-			$scope.isLogged = function(){
+			$scope.isLogged = () => {
 				if ( usersService.isLogged()) return true;
 					else return false;
 			}
 
-			$scope.logOut = function() {
+			$scope.logOut = () => {
 				sessionStorage.removeItem('userData');
-				$scope.loggedUserData = {};
+				$rootScope.loggedUserData = {};
 			}
 		});

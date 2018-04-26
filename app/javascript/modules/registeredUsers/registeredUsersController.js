@@ -1,11 +1,11 @@
 angular.module('registeredUsersModule')
-	.controller('registeredUsersController', function($scope, $http, usersService, registerService, helpersService){
+	.controller('registeredUsersController', ($scope, $http, usersService, registerService, helpersService) => {
 
 		$scope.registeredUsers = '';
 
-		$scope.getRegisteredUsers = function(){
+		$scope.getRegisteredUsers = () => {
 			
-			$http.get(helpersService.serverUrl('registeredUsers')).then(function(response){
+			$http.get(helpersService.serverUrl('registeredUsers')).then((response) => {
 				$scope.registeredUsers = response.data;
 			});
 		};

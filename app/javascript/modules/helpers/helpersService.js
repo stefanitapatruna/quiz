@@ -1,8 +1,8 @@
 angular.module('helpersModule')
-	.factory('helpersService',function(){
-		helpersService = {};
+	.factory('helpersService', () => {
+		let helpersService = {};
 
-		helpersService.serverUrl = function(url){
+		helpersService.serverUrl = (url) => {
 			return 'http://localhost:4000/' + url;
 		}
 

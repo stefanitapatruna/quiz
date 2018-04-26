@@ -1,5 +1,5 @@
 angular.module('baseModule',['ui.router'])
-	.controller('baseModuleController',['$scope', function($scope){
+	.controller('baseModuleController',['$scope', ($scope) => {
 
 		$scope.expandedTabs = {
 								'home': true,
@@ -9,12 +9,12 @@ angular.module('baseModule',['ui.router'])
 								'search': false
 							};
 		
-		$scope.toggleTab = function(tabName){
+		$scope.toggleTab = (tabName) => {
 			$scope.expandedTabs[tabName] = !$scope.expandedTabs[tabName];
 		}						
 
 	}])
-	.config(['$stateProvider','$urlRouterProvider','$locationProvider', function($stateProvider , $urlRouterProvider, $locationProvider){
+	.config(['$stateProvider','$urlRouterProvider','$locationProvider', ($stateProvider , $urlRouterProvider, $locationProvider) => {
 		$stateProvider
 		.state('aboutUs',{
 			url:'/aboutUs',
@@ -31,7 +31,7 @@ angular.module('baseModule',['ui.router'])
 		.state('register',{
 			url:'/register',
 			templateUrl: 'html/pages/register.html',
-			controller: 'registeredUsersController'
+			controller: 'registerController'
 		})
 		.state('registeredUsers',{
 			url: '/registeredUsers',

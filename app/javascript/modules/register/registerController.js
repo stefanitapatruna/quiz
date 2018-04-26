@@ -1,15 +1,15 @@
 angular.module('registerModule')
-	.controller('registerController', function($scope, registerService){
+	.controller('registerController', ($scope, registerService) => {
 
 		$scope.minAge = 18; 
 		$scope.maxAge = 99;
 		$scope.ages = [];
 		$scope.viewPassword = '';
 		$scope.viewPasswordRetype = '';
-		var initiatedAges = false;
+		let initiatedAges = false;
 
-		$scope.initAges = function(){	
-			var i = $scope.minAge;
+		$scope.initAges = () => {	
+			let i = $scope.minAge;
 			while(i <= $scope.maxAge){
 				$scope.ages.push(i);
 				i++;
@@ -31,12 +31,12 @@ angular.module('registerModule')
 			aboutYou: ''
 		}
 
-		$scope.registerUser = function(){
+		$scope.registerUser = () => {
 			$scope.userData.password = registerService.encodeString($scope.viewPassword);
 			registerService.insertUser($scope.userData);
 		}
 
-		$scope.verifPass = function(){
+		$scope.verifPass = () => {
 			if ($scope.viewPassword) {
 			 	$scope.message = registerService.validatePass($scope.viewPassword, $scope.viewPasswordRetype);
 			}	

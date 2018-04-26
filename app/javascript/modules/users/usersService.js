@@ -1,10 +1,10 @@
 angular.module('usersModule')
-	.factory('usersService', function($http, helpersService) {
+	.factory('usersService', ($http, helpersService) => {
 		var usersService = {};
 	
 		usersService.verifIfUsersExist = (user) => {		
 			
-			return $http.get(helpersService.serverUrl('verifUser/')+ user).then( function(response) {
+			return $http.get(helpersService.serverUrl('verifUser/')+ user).then( response => {
 				if (response.data == null) {return false} 
 					else {return true}
 			});
@@ -18,7 +18,7 @@ angular.module('usersModule')
 				return response.data });
 		}
 
-		usersService.isLogged = function(){
+		usersService.isLogged = () => {
 			var userData = {};
 
 			userData = sessionStorage.getItem('userData');

@@ -4,6 +4,7 @@ var sass = require('gulp-sass');
 var livereload = require('gulp-livereload');
 var image = require('gulp-image');
 var browserify = require('gulp-browserify');
+var babel = require('gulp-babel');
 
 var express = require('express');
 var appServer = express();
@@ -26,6 +27,9 @@ gulp.task('scripts', function() {
           insertGlobals : true,
           debug : !gulp.env.production
         }))
+        .pipe(babel({
+            presets: ['env']
+        }))
         .pipe(gulp.dest('public'))
 });
 
@@ -34,6 +38,9 @@ gulp.task('modulesScripts', function() {
         .pipe(browserify({
           insertGlobals : true,
           debug : !gulp.env.production
+        }))
+        .pipe(babel({
+            presets: ['env']
         }))
         .pipe(gulp.dest('public/javascript/modules/'))
 });
