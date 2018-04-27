@@ -1,6 +1,6 @@
 angular.module('usersModule')
 	.factory('usersService', ($http, helpersService) => {
-		var usersService = {};
+		let usersService = {};
 	
 		usersService.verifIfUsersExist = (user) => {		
 			

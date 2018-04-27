@@ -3,28 +3,32 @@
 	<form name="registerForm">
 		<div class="col-xs-12">
 			<div class="row mt-15">
-				<div class="form-label required">First name:</div>
+				<div class="form-label required">Username:</div>
 				<div class="form-input">
-					<input type="text" name="fname" ng-model="userData.fname" required
-					ng-class="{'error':registerForm.fname.$touched && registerForm.fname.$invalid}">
+					<input type="text" name="user" ng-model="userData.user" required
+					ng-change="verifUserExist(userData.user)" ng-model-option="{debounce: 1500}"
+					ng-class="{'error':registerForm.user.$touched && registerForm.user.$invalid}">
 				</div>
-				<div class="error-message" ng-if="registerForm.fname.$touched && registerForm.fname.$invalid">
+				<div class="error-message" ng-if="registerForm.user.$touched && registerForm.user.$invalid">
 					<p>This is a mandatory field!</p>
 				</div>
-				<div class="success-message icon" ng-if="registerForm.fname.$touched && registerForm.fname.$valid">
+				<div class="error-message" ng-if="registerForm.user.$touched && registerError">
+					<p>{{registerErrorMessage}}</p>
+				</div>
+				<div class="success-message icon" ng-if="registerForm.user.$touched && registerForm.user.$valid && !registerError">
 					&nbsp;
 				</div>
 			</div>
 			<div class="row mt-15">
-				<div class="form-label required">Last name:</div>
+				<div class="form-label required">Full name:</div>
 				<div class="form-input">
-					<input type="text" name="lastName" ng-model="userData.lname" required
-					ng-class="{'error':registerForm.lastName.$touched && registerForm.lastName.$invalid}">
+					<input type="text" name="fullName" ng-model="userData.name" required
+					ng-class="{'error':registerForm.fullName.$touched && registerForm.fullName.$invalid}">
 				</div>
-				<div class="error-message" ng-if="registerForm.lastName.$touched && registerForm.lastName.$invalid">
+				<div class="error-message" ng-if="registerForm.fullName.$touched && registerForm.fullName.$invalid">
 					<p>This is a mandatory field!</p>
 				</div>
-				<div class="success-message icon" ng-if="registerForm.lastName.$touched && registerForm.lastName.$valid">
+				<div class="success-message icon" ng-if="registerForm.fullName.$touched && registerForm.fullName.$valid">
 					&nbsp;
 				</div>
 			</div>
@@ -93,7 +97,7 @@
 			</div>
 			<div class="row mt-15">
 				<div class="form-label">&nbsp;</div>
-				<div class="form-input"><button ng-click="registerUser()" ng-disabled="registerForm.$invalid && !verifPass()" ng-class="{'disabled':registerForm.$invalid && !verifPass()}">REGISTER</button></div>
+				<div class="form-input"><button ng-click="registerUser()" ng-disabled="registerForm.$invalid || !verifPass() || registerError" ng-class="{'disabled':registerForm.$invalid || !verifPass() || registerError}">REGISTER</button></div>
 			</div>
 		</div>
 	</form>

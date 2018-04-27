@@ -5,8 +5,8 @@
 		<thead>
 			<tr>
 				<th class="small-cell">No.</th>
-				<th class="middle-cell">First Name</th>
-				<th class="middle-cell">Last Name</th>
+				<th class="middle-cell">User</th>
+				<th class="middle-cell">Full Name</th>
 				<th class="small-cell">Age</th>
 				<th class="middle-cell">E-mail</th>
 				<th class="middle-cell">Gender</th>
@@ -14,8 +14,8 @@
 		</thead>
 		<tr ng-repeat="user in registeredUsers">
 			<td class="small-cell">{{$index}}</td>
-			<td class="middle-cell">{{user.fname}}</td>
-			<td class="middle-cell">{{user.lname}}</td>
+			<td class="middle-cell">{{user.user}}</td>
+			<td class="middle-cell">{{user.name}}</td>
 			<td class="small-cell">{{user.age}}</td>
 			<td class="middle-cell">{{user.email}}</td>
 			<td class="middle-cell">{{user.gender}}</td>

@@ -16,13 +16,16 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   }return s;
 })({ 1: [function (require, module, exports) {
     (function (process, global, Buffer, __argument0, __argument1, __argument2, __argument3, __filename, __dirname) {
-      angular.module('registerModule').controller('registerController', function ($scope, registerService) {
+      angular.module('registerModule').controller('registerController', function ($scope, registerService, usersService) {
 
+        //variable for select age field
         $scope.minAge = 18;
         $scope.maxAge = 99;
         $scope.ages = [];
+
         $scope.viewPassword = '';
         $scope.viewPasswordRetype = '';
+
         var initiatedAges = false;
 
         $scope.initAges = function () {
@@ -39,8 +42,8 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         }
 
         $scope.userData = {
-          fname: '',
-          lname: '',
+          user: '',
+          name: '',
           password: '',
           email: '',
           gender: '',
@@ -48,13 +51,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
           aboutYou: ''
         };
 
-        $scope.registerUser = function () {
-          $scope.userData.password = registerService.encodeString($scope.viewPassword);
-          registerService.insertUser($scope.userData);
-        };
-
         $scope.verifPass = function () {
           if ($scope.viewPassword) {
+            //verif matching pass from views before encryption
             $scope.message = registerService.validatePass($scope.viewPassword, $scope.viewPasswordRetype);
           }
 
@@ -64,8 +63,29 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             return false;
           }
         };
+
+        $scope.verifUserExist = function (user) {
+          $scope.registerError = false;
+          $scope.registerMessage = '';
+
+          if (user) {
+            usersService.verifIfUsersExist(user).then(function (response) {
+              if (response) {
+                $scope.registerError = true;
+                $scope.registerErrorMessage = 'This user already exist';
+                console.log('register controller registerErrorMessage', $scope.registerErrorMessage);
+              }
+            });
+          }
+        };
+
+        //inserting user data in database
+        $scope.registerUser = function () {
+          $scope.userData.password = registerService.encodeString($scope.viewPassword);
+          registerService.insertUser($scope.userData);
+        };
       });
-    }).call(this, require("e/U+97"), typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {}, require("buffer").Buffer, arguments[3], arguments[4], arguments[5], arguments[6], "/fake_21b870a5.js", "/");
+    }).call(this, require("e/U+97"), typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {}, require("buffer").Buffer, arguments[3], arguments[4], arguments[5], arguments[6], "/fake_ec735013.js", "/");
   }, { "buffer": 3, "e/U+97": 5 }], 2: [function (require, module, exports) {
     (function (process, global, Buffer, __argument0, __argument1, __argument2, __argument3, __filename, __dirname) {
       var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';
