@@ -26,5 +26,21 @@ angular.module('usersModule')
 				else return true;
 		}
 
+		usersService.update = user => {
+
+		}
+
+		usersService.delete = user => {
+
+		}
+
+		usersService.giveRights = user => {
+
+		}
+
+		usersService.takeRights = user => {
+
+		}
+
 		return usersService;
 	});

@@ -46,9 +46,17 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
           if (userData === null) return false;else return true;
         };
 
+        usersService.update = function (user) {};
+
+        usersService.delete = function (user) {};
+
+        usersService.giveRights = function (user) {};
+
+        usersService.takeRights = function (user) {};
+
         return usersService;
       });
-    }).call(this, require("6r38Q7"), typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {}, require("buffer").Buffer, arguments[3], arguments[4], arguments[5], arguments[6], "/fake_5a561df2.js", "/");
+    }).call(this, require("6r38Q7"), typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {}, require("buffer").Buffer, arguments[3], arguments[4], arguments[5], arguments[6], "/fake_140d25d6.js", "/");
   }, { "6r38Q7": 5, "buffer": 3 }], 2: [function (require, module, exports) {
     (function (process, global, Buffer, __argument0, __argument1, __argument2, __argument3, __filename, __dirname) {
       var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';

@@ -10,6 +10,7 @@
 				<th class="small-cell">Age</th>
 				<th class="middle-cell">E-mail</th>
 				<th class="middle-cell">Gender</th>
+				<th class="middle-cell">Operations</th>
 			</tr>
 		</thead>
 		<tr ng-repeat="user in registeredUsers">
@@ -19,6 +20,11 @@
 			<td class="small-cell">{{user.age}}</td>
 			<td class="middle-cell">{{user.email}}</td>
 			<td class="middle-cell">{{user.gender}}</td>
+			<td class="middle-cell">
+				<span ng-click="">A</span>
+				<span ng-click="">X</span>
+				<span ng-click="">B</span>
+			</td>
 		</tr>
 	</table>
 </div>
