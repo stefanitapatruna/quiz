@@ -14,8 +14,8 @@
 		<div ng-class="{'down-arrow':!expandedTabs.login, 'up-arrow':expandedTabs.login}"></div>
 		LogIn
 	</div>
-	<div class="subsection" ng-show="expandedTabs.login" ng-controller="usersController">
-		<form name="loginForm">
+	<div class="subsection" ng-show="expandedTabs.login" ng-controller="usersController" ng-init="initializeUser()">
+		<form name="loginForm" ng-show="!isLogged()">
 			<label class="menu-label" for="userName">User Name:</label><input type="text" name="userName" ng-model="loginUser" 
 				class="menu-input" ng-change="verifUser(loginUser)" ng-model-options="{debounce : 1500}">
 
@@ -27,7 +27,7 @@
 			<p>{{loginErrorMessage}}</p>
 		</div>
 		<div ng-if="isLogged()">
-			<p>user logat ca: {{loggedUserData.fname}}</p>
+			<p>user logat ca: {{loggedUserData.user}}</p>
 			<button class="basic" ng-click="logOut()">Log Out</button>
 		</div>
 	</div>
@@ -38,7 +38,7 @@
 		User CP
 	</div>
 	<div class="subsection" ng-show="expandedTabs.userCP">
-		<a href="">Profile</a>
+		<a ui-sref="profile" ng-if="isLogged()" >Profile</a>
 		<a href="">My anounces</a>
 		<a href="">Favorites</a>
 		<a ui-sref="registeredUsers">Registered Users</a>

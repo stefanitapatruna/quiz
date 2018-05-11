@@ -1,5 +1,5 @@
 angular.module('baseModule',['ui.router'])
-	.controller('baseModuleController',['$scope', ($scope) => {
+	.controller('baseModuleController',['$scope','usersService', ($scope, usersService) => {
 
 		$scope.expandedTabs = {
 								'home': true,
@@ -11,8 +11,13 @@ angular.module('baseModule',['ui.router'])
 		
 		$scope.toggleTab = (tabName) => {
 			$scope.expandedTabs[tabName] = !$scope.expandedTabs[tabName];
-		}						
+		}	
 
+		$scope.isLogged = () => {
+				if ( usersService.isLogged()) return true;
+					else return false;
+			}
+					
 	}])
 	.config(['$stateProvider','$urlRouterProvider','$locationProvider', ($stateProvider , $urlRouterProvider, $locationProvider) => {
 		$stateProvider
@@ -36,6 +41,10 @@ angular.module('baseModule',['ui.router'])
 		.state('registeredUsers',{
 			url: '/registeredUsers',
 			templateUrl: 'html/pages/registeredUsers.html',
+		})
+		.state('profile',{
+			url: '/profile',
+			templateUrl: 'html/pages/profile.html',
 		})
 		.state('root',{
 			url:'/',

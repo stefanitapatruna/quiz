@@ -3,5 +3,6 @@ angular.module("myShop",['baseModule',
 						'registerModule',
 						'usersModule',
 						'helpersModule',
-						'registeredUsersModule'
+						'registeredUsersModule',
+						'userProfile'
 						]); 

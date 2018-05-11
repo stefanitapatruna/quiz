@@ -1,104 +1,109 @@
-<div class="registration-form">
-	<h2>REGISTER</h2>
-	<form name="registerForm">
-		<div class="col-xs-12">
-			<div class="row mt-15">
-				<div class="form-label required">Username:</div>
-				<div class="form-input">
-					<input type="text" name="user" ng-model="userData.user" required
-					ng-change="verifUserExist(userData.user)" ng-model-option="{debounce: 1500}"
-					ng-class="{'error':registerForm.user.$touched && registerForm.user.$invalid}">
+<div ng-if="!isLogged()">
+	<div class="registration-form">
+		<h2>REGISTER</h2>
+		<form name="registerForm">
+			<div class="col-xs-12">
+				<div class="row mt-15">
+					<div class="form-label required">Username:</div>
+					<div class="form-input">
+						<input type="text" name="user" ng-model="userData.user" required
+						ng-change="verifUserExist(userData.user)" ng-model-option="{debounce: 1500}"
+						ng-class="{'error':registerForm.user.$touched && registerForm.user.$invalid}">
+					</div>
+					<div class="error-message" ng-if="registerForm.user.$touched && registerForm.user.$invalid">
+						<p>This is a mandatory field!</p>
+					</div>
+					<div class="error-message" ng-if="registerForm.user.$touched && registerError">
+						<p>{{registerErrorMessage}}</p>
+					</div>
+					<div class="success-message icon" ng-if="registerForm.user.$touched && registerForm.user.$valid && !registerError">
+						&nbsp;
+					</div>
 				</div>
-				<div class="error-message" ng-if="registerForm.user.$touched && registerForm.user.$invalid">
-					<p>This is a mandatory field!</p>
+				<div class="row mt-15">
+					<div class="form-label required">Full name:</div>
+					<div class="form-input">
+						<input type="text" name="fullName" ng-model="userData.name" required
+						ng-class="{'error':registerForm.fullName.$touched && registerForm.fullName.$invalid}">
+					</div>
+					<div class="error-message" ng-if="registerForm.fullName.$touched && registerForm.fullName.$invalid">
+						<p>This is a mandatory field!</p>
+					</div>
+					<div class="success-message icon" ng-if="registerForm.fullName.$touched && registerForm.fullName.$valid">
+						&nbsp;
+					</div>
 				</div>
-				<div class="error-message" ng-if="registerForm.user.$touched && registerError">
-					<p>{{registerErrorMessage}}</p>
+				<div class="row mt-15">
+					<div class="form-label required">Password:</div>
+					<div class="form-input">
+						<input type="password" name="viewPassword" ng-model="viewPassword" required
+						ng-class="{'error':(registerForm.viewPassword.$touched && registerForm.viewPassword.$invalid) || (registerForm.viewPassword.$touched && !verifPass())}">
+					</div>
+					<div class="error-message" ng-if="registerForm.viewPassword.$touched && registerForm.viewPassword.$invalid">
+						<p>This is a mandatory field!</p>
+					</div>
+					<div class="success-message icon" ng-if="registerForm.viewPassword.$touched && registerForm.viewPassword.$valid && verifPass()">
+						&nbsp;
+					</div>
 				</div>
-				<div class="success-message icon" ng-if="registerForm.user.$touched && registerForm.user.$valid && !registerError">
-					&nbsp;
+				<div class="row mt-15">
+					<div class="form-label required">Re-type Pass:</div>
+					<div class="form-input">
+						<input type="password" name="viewPasswordRetype" ng-model="viewPasswordRetype" required
+						ng-class="{'error': (registerForm.viewPasswordRetype.$touched && registerForm.viewPasswordRetype.$invalid) || (registerForm.viewPasswordRetype.$touched && !verifPass())}">
+					</div>
+					<div class="error-message" ng-if="registerForm.viewPasswordRetype.$touched && registerForm.viewPasswordRetype.$invalid">
+						<p>This is a mandatory field!</p>
+					</div>
+					<div class="error-message" ng-if="registerForm.viewPassword.$dirty && registerForm.viewPasswordRetype.$dirty && !verifPass()">
+						{{message}}
+					</div>
+					<div class="success-message icon" ng-if="registerForm.viewPasswordRetype.$touched && registerForm.viewPasswordRetype.$valid && verifPass()"">
+						&nbsp;
+					</div>
+				</div>
+				<div class="row mt-15">
+					<div class="form-label required">Gender:</div>
+					<div class="form-input">
+						<input type="radio" name="gender" ng-model="userData.gender" value="male" checked="checked"> Male
+						<input type="radio" name="gender" ng-model="userData.gender" value="female"> Female
+					</div>
+				</div>
+				<div class="row mt-15">
+					<div class="form-label required">E-mail:</div>
+					<div class="form-input">
+						<input type="email" name="email" ng-model="userData.email" required=""
+						ng-class="{'error':registerForm.email.$touched && registerForm.email.$invalid}">
+					</div>
+					<div class="error-message" ng-if="registerForm.email.$touched && registerForm.email.$invalid">
+						Type here your email address!
+					</div>
+					<div class="success-message icon" ng-if="registerForm.email.$touched && registerForm.email.$valid">
+						&nbsp;
+					</div>
+				</div>
+				<div class="row mt-15">
+					<div class="form-label">Age:</div>
+					<div class="form-input">
+						<select ng-model="userData.age">
+							<option ng-repeat="age in ages" value="{{age}}">{{age}}</option>
+						</select>
+					</div>
+				</div>
+				<div class="row mt-15">
+					<div class="form-label align-top">About you:</div>
+					<div class="form-input">
+						<textarea rows="5" cols="40" placeholder="Type here something about you..." ng-model="userData.aboutYou"></textarea>
+					</div>
+				</div>
+				<div class="row mt-15">
+					<div class="form-label">&nbsp;</div>
+					<div class="form-input"><button ng-click="registerUser()" ng-disabled="registerForm.$invalid || !verifPass() || registerError" ng-class="{'disabled':registerForm.$invalid || !verifPass() || registerError}">REGISTER</button></div>
 				</div>
 			</div>
-			<div class="row mt-15">
-				<div class="form-label required">Full name:</div>
-				<div class="form-input">
-					<input type="text" name="fullName" ng-model="userData.name" required
-					ng-class="{'error':registerForm.fullName.$touched && registerForm.fullName.$invalid}">
-				</div>
-				<div class="error-message" ng-if="registerForm.fullName.$touched && registerForm.fullName.$invalid">
-					<p>This is a mandatory field!</p>
-				</div>
-				<div class="success-message icon" ng-if="registerForm.fullName.$touched && registerForm.fullName.$valid">
-					&nbsp;
-				</div>
-			</div>
-			<div class="row mt-15">
-				<div class="form-label required">Password:</div>
-				<div class="form-input">
-					<input type="password" name="viewPassword" ng-model="viewPassword" required
-					ng-class="{'error':(registerForm.viewPassword.$touched && registerForm.viewPassword.$invalid) || (registerForm.viewPassword.$touched && !verifPass())}">
-				</div>
-				<div class="error-message" ng-if="registerForm.viewPassword.$touched && registerForm.viewPassword.$invalid">
-					<p>This is a mandatory field!</p>
-				</div>
-				<div class="success-message icon" ng-if="registerForm.viewPassword.$touched && registerForm.viewPassword.$valid && verifPass()">
-					&nbsp;
-				</div>
-			</div>
-			<div class="row mt-15">
-				<div class="form-label required">Re-type Pass:</div>
-				<div class="form-input">
-					<input type="password" name="viewPasswordRetype" ng-model="viewPasswordRetype" required
-					ng-class="{'error': (registerForm.viewPasswordRetype.$touched && registerForm.viewPasswordRetype.$invalid) || (registerForm.viewPasswordRetype.$touched && !verifPass())}">
-				</div>
-				<div class="error-message" ng-if="registerForm.viewPasswordRetype.$touched && registerForm.viewPasswordRetype.$invalid">
-					<p>This is a mandatory field!</p>
-				</div>
-				<div class="error-message" ng-if="registerForm.viewPassword.$dirty && registerForm.viewPasswordRetype.$dirty && !verifPass()">
-					{{message}}
-				</div>
-				<div class="success-message icon" ng-if="registerForm.viewPasswordRetype.$touched && registerForm.viewPasswordRetype.$valid && verifPass()"">
-					&nbsp;
-				</div>
-			</div>
-			<div class="row mt-15">
-				<div class="form-label required">Gender:</div>
-				<div class="form-input">
-					<input type="radio" name="gender" ng-model="userData.gender" value="male" checked="checked"> Male
-					<input type="radio" name="gender" ng-model="userData.gender" value="female"> Female
-				</div>
-			</div>
-			<div class="row mt-15">
-				<div class="form-label required">E-mail:</div>
-				<div class="form-input">
-					<input type="email" name="email" ng-model="userData.email" required=""
-					ng-class="{'error':registerForm.email.$touched && registerForm.email.$invalid}">
-				</div>
-				<div class="error-message" ng-if="registerForm.email.$touched && registerForm.email.$invalid">
-					Type here your email address!
-				</div>
-				<div class="success-message icon" ng-if="registerForm.email.$touched && registerForm.email.$valid">
-					&nbsp;
-				</div>
-			</div>
-			<div class="row mt-15">
-				<div class="form-label">Age:</div>
-				<div class="form-input">
-					<select ng-model="userData.age">
-						<option ng-repeat="age in ages" value="{{age}}">{{age}}</option>
-					</select>
-				</div>
-			</div>
-			<div class="row mt-15">
-				<div class="form-label align-top">About you:</div>
-				<div class="form-input">
-					<textarea rows="5" cols="40" placeholder="Type here something about you..." ng-model="userData.aboutYou"></textarea>
-				</div>
-			</div>
-			<div class="row mt-15">
-				<div class="form-label">&nbsp;</div>
-				<div class="form-input"><button ng-click="registerUser()" ng-disabled="registerForm.$invalid || !verifPass() || registerError" ng-class="{'disabled':registerForm.$invalid || !verifPass() || registerError}">REGISTER</button></div>
-			</div>
-		</div>
-	</form>
+		</form>
+	</div>
+</div>
+<div ng-if="isLogged()">
+	<p class="error-message">YOU ARE ALREADY LOGGED IN !!! If you want to register another account you must log out.</p>
 </div>

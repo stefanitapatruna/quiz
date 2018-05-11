@@ -16,7 +16,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
   }return s;
 })({ 1: [function (require, module, exports) {
     (function (process, global, Buffer, __argument0, __argument1, __argument2, __argument3, __filename, __dirname) {
-      angular.module('baseModule', ['ui.router']).controller('baseModuleController', ['$scope', function ($scope) {
+      angular.module('baseModule', ['ui.router']).controller('baseModuleController', ['$scope', 'usersService', function ($scope, usersService) {
 
         $scope.expandedTabs = {
           'home': true,
@@ -28,6 +28,10 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
         $scope.toggleTab = function (tabName) {
           $scope.expandedTabs[tabName] = !$scope.expandedTabs[tabName];
+        };
+
+        $scope.isLogged = function () {
+          if (usersService.isLogged()) return true;else return false;
         };
       }]).config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
         $stateProvider.state('aboutUs', {
@@ -46,6 +50,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         }).state('registeredUsers', {
           url: '/registeredUsers',
           templateUrl: 'html/pages/registeredUsers.html'
+        }).state('profile', {
+          url: '/profile',
+          templateUrl: 'html/pages/profile.html'
         }).state('root', {
           url: '/',
           templateUrl: 'html/pages/aboutUs.html'
@@ -57,7 +64,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
         $locationProvider.hashPrefix('');
         $locationProvider.html5Mode({ enabled: true });
       }]);
-    }).call(this, require("e/U+97"), typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {}, require("buffer").Buffer, arguments[3], arguments[4], arguments[5], arguments[6], "/fake_c514a592.js", "/");
+    }).call(this, require("e/U+97"), typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {}, require("buffer").Buffer, arguments[3], arguments[4], arguments[5], arguments[6], "/fake_45454955.js", "/");
   }, { "buffer": 3, "e/U+97": 5 }], 2: [function (require, module, exports) {
     (function (process, global, Buffer, __argument0, __argument1, __argument2, __argument3, __filename, __dirname) {
       var lookup = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/';

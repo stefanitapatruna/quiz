@@ -50,7 +50,16 @@ angular.module('usersModule')
 					else return false;
 			}
 
+			$scope.initializeUser = () => {
+				if ( usersService.isLogged()) {
+					$rootScope.loggedUserData = sessionStorage.getItem('userData');
+					console.log($rootScope.loggedUserData);
+				}
+			}
+
 			$scope.logOut = () => {
+				$scope.loginUser ='';
+				$scope.loginPass ='';
 				sessionStorage.removeItem('userData');
 				$rootScope.loggedUserData = {};
 			}

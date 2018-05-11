@@ -1,0 +1,32 @@
+<div ng-if="isLogged()">
+	<h1> MY PROFILE</h1>
+	<div>
+		<div class=" mt-15">
+			<div class="form-label"> USER :</div>
+			<div class="form-input"> {{loggedUserData.user}} </div>
+		</div>
+		<div class=" mt-15">
+			<div class="form-label"> NAME </div>
+			<div class="form-input"> {{loggedUserData.name}} </div>
+		</div>
+		<div class=" mt-15">
+			<div class="form-label"> GENDER: </div>
+			<div class="form-input"> {{loggedUserData.gender}} </div>
+		</div>
+		<div class=" mt-15">
+			<div class="form-label"> E-MAIL: </div>
+			<div class="form-input"> {{loggedUserData.email}}</div>
+		</div>
+		<div class=" mt-15">
+			<div class="form-label"> AGE: </div>
+			<div class="form-input"> {{loggedUserData.age}} </div>
+		</div>
+		<div class=" mt-15">
+			<div class="form-label"> ABOUT YOU: </div>
+			<div class="form-input"> {{loggedUserData.aboutYou}} </div>
+		</div>
+	</div>
+</div>
+<div ng-if="!isLogged()"> 
+	<p class="error-message">YOU HAVE TO LOGIN TO SEE THIS PAGE</p>
+</div>
