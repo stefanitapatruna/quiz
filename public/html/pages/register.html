@@ -1,4 +1,4 @@
-<div ng-if="!isLogged()">
+<div ng-show="!isLogged()">
 	<div class="registration-form">
 		<h2>REGISTER</h2>
 		<form name="registerForm">
@@ -104,6 +104,6 @@
 		</form>
 	</div>
 </div>
-<div ng-if="isLogged()">
+<div ng-show="isLogged()">
 	<p class="error-message">YOU ARE ALREADY LOGGED IN !!! If you want to register another account you must log out.</p>
 </div>

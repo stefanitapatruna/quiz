@@ -13,7 +13,7 @@
 				<th class="middle-cell">Operations</th>
 			</tr>
 		</thead>
-		<tr ng-repeat="user in registeredUsers">
+		<tr ng-repeat="user in registeredUsers" ng-class-even="'even-background'">
 			<td class="small-cell">{{$index}}</td>
 			<td class="middle-cell">{{user.user}}</td>
 			<td class="middle-cell">{{user.name}}</td>

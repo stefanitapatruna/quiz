@@ -1,4 +1,4 @@
-<div ng-if="isLogged()">
+<div ng-show="isLogged()">
 	<h1> MY PROFILE</h1>
 	<div>
 		<div class=" mt-15">
@@ -27,6 +27,6 @@
 		</div>
 	</div>
 </div>
-<div ng-if="!isLogged()"> 
+<div ng-show="!isLogged()"> 
 	<p class="error-message">YOU HAVE TO LOGIN TO SEE THIS PAGE</p>
 </div>

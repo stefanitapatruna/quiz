@@ -58,7 +58,6 @@ angular.module('registerModule')
 						if (response) {
 							$scope.registerError = true; 
 							$scope.registerErrorMessage = 'This user already exist';
-							console.log('register controller registerErrorMessage', $scope.registerErrorMessage);
 						}
 					});
 				}

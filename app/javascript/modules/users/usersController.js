@@ -53,7 +53,6 @@ angular.module('usersModule')
 			$scope.initializeUser = () => {
 				if ( usersService.isLogged()) {
 					$rootScope.loggedUserData = sessionStorage.getItem('userData');
-					console.log($rootScope.loggedUserData);
 				}
 			}
 
